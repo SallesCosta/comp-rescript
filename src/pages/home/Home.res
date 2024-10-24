@@ -5,6 +5,8 @@ module Styles = {
     "alignItems": "center",
     "backgroundColor": "#172128",
     "display": "flex",
+    "flexDirection": "column",
+    "gap": "30px",
     "height": "100dvh",
     "justifyContent": "center",
     "width": "100%",
@@ -24,5 +26,6 @@ let default = () => {
       <Button label="découvrir" variant=#primary />
       <Button label="SECONDARY" variant=#secondary size=#md />
     </div>
+      <Carousel />
  </Wrapper>
 }
