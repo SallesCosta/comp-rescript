@@ -26,6 +26,6 @@ let default = () => {
       <Button label="découvrir" variant=#primary />
       <Button label="SECONDARY" variant=#secondary size=#md />
     </div>
-      <Carousel />
- </Wrapper>
+    <Carousel />
+  </Wrapper>
 }

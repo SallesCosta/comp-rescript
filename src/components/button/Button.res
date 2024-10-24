@@ -73,8 +73,8 @@ module Styles = {
       "textTransform": "lowercase",
       "textDecoration": "none",
       "userSelect": "none",
-      "minWidth": minWidth,
-      "width": block ? "90px" : "100%",
+      // "minWidth": minWidth,
+      // "width": block ? "90px" : "100%",
       "whitSpace": "nowrap",
       "willChange": "background-color",
       "&:hover": {
