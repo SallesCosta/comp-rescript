@@ -1,15 +1,17 @@
 open Emotion
 
 let container = css({
-  "border": "2px solid orange",
+  // "border": "2px solid orange",
   "position": "relative",
   "width": "90dvw",
   "maxWidth": "100dvw",
   "cursor": "pointer",
-  "height": "400px",
   "display": "flex",
-  "gap": "32px",
+  "gap": "16px",
   "flexDirection": "column",
+ "@media (min-width: 1200px)": {
+  "gap": 0,
+  },
   "@media (min-width: 768px)": {
     "&:hover #actionsButtons": {
       "opacity": 1,
@@ -20,10 +22,14 @@ let container = css({
 let list = css({
   "display": "flex",
   "overflowY": "hidden",
+  "overflowX": "auto",
+  "scrollBehavior": "smooth",
+  "scrollSnapType": "x mandatory",
+  "scrollBarWidth": "none",
   "flexDirection": "row",
   "listStyle": "none",
   "padding": 0,
-  "margin": "0 0 0 16px",
+  "paddingLeft": "16px",
   "gap": "24px",
   "@media (min-width: 768px)": {
     "padding": "16px 32px",
@@ -39,6 +45,10 @@ let title = css({
   "fontWeight": 700,
   "margin": 0,
   "lineHeight": "120%",
+  "paddingLeft": "16px",
+   "@media (min-width: 768px)": {
+    "paddingLeft": "32px",
+    },
   "@media (min-width: 1200px)": {
     "fontSize": "28px",
   },
