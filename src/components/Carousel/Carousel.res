@@ -1,5 +1,6 @@
 open Render
 open CarouselStyle
+open Card
 
 type mockedDataProps = {
   title: string,
@@ -95,10 +96,10 @@ let make = () => {
       })}
     </div>
     <div className=actionsLeft id="actionsButtons">
-      <Button label="L" block=true />
+      <ArrowButton dir=#left />
     </div>
     <div className=actionsRight id="actionsButtons">
-      <Button label="R" block=true />
+      <ArrowButton dir=#right />
     </div>
   </div>
 }

@@ -1,8 +1,9 @@
 type size = [#md | #lg]
 type variant = [#primary | #secondary]
+// type icon = [#leftIcon | #rightIcon]
 
 module Styles = {
-  let button = (~size: size, ~block, ~variant: variant) => {
+  let button = (~size: size, ~variant: variant) => {
     let transition = `250ms background-color, 150ms box-shadow`
 
     let backgroundColor = switch variant {
@@ -45,11 +46,6 @@ module Styles = {
     | #lg => "40px"
     }
 
-    let minWidth = switch size {
-    | #md => "70px"
-    | #lg => "94px"
-    }
-
     Emotion.css({
       "alignItems": "center",
       "backgroundColor": backgroundColor,
@@ -73,8 +69,6 @@ module Styles = {
       "textTransform": "lowercase",
       "textDecoration": "none",
       "userSelect": "none",
-      // "minWidth": minWidth,
-      // "width": block ? "90px" : "100%",
       "whitSpace": "nowrap",
       "willChange": "background-color",
       "&:hover": {
@@ -93,21 +87,22 @@ module Styles = {
   }
 }
 
+      // <img src="/images/slider-arrow-left.svg" alt="left icon" />
 @react.component
 let make = (
   ~label,
   ~loading=false,
-  ~block=false,
   ~onClick=?,
   ~disabled=false,
   ~size: size=#lg,
   ~variant: variant=#primary,
 ) => {
-  <button className={Styles.button(~size, ~block, ~variant)} ?onClick disabled>
+  <button className={Styles.button(~size, ~variant)} ?onClick disabled>
     {if loading {
       <div> {"loading..."->React.string} </div>
     } else {
       label->React.string
     }}
-  </button>
+ </button>
 }
+
