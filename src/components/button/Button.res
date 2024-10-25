@@ -1,6 +1,5 @@
 type size = [#md | #lg]
 type variant = [#primary | #secondary]
-// type icon = [#leftIcon | #rightIcon]
 
 module Styles = {
   let button = (~size: size, ~variant: variant) => {
@@ -87,7 +86,6 @@ module Styles = {
   }
 }
 
-      // <img src="/images/slider-arrow-left.svg" alt="left icon" />
 @react.component
 let make = (
   ~label,
@@ -103,6 +101,5 @@ let make = (
     } else {
       label->React.string
     }}
- </button>
+  </button>
 }
-

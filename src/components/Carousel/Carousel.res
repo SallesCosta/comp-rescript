@@ -1,4 +1,5 @@
 open Render
+open React
 open CarouselStyle
 open Card
 
@@ -83,11 +84,31 @@ let mockedData = [
   },
 ]
 
+
 @react.component
 let make = () => {
+
+  let startItem = 1
+  let lastItem = 3
+  let (currentIndex, setCurrentIndex) = useState(() => startItem)
+
+  let handleRightClick = _ => {
+    if currentIndex < lastItem {
+      let newIndex = currentIndex + startItem
+      setCurrentIndex(_ => newIndex)
+    }
+  }
+
+  let handleLeftClick = _ => {
+    if currentIndex > 0 {
+      let newIndex = currentIndex - startItem
+      setCurrentIndex(_ => newIndex)
+    }
+  }
+
   <div className=container>
     <h2 className=title> {"Top 10 en ce moment"->s} </h2>
-    <div className=list>
+    <div className=list(~p=currentIndex)>
       {map(mockedData, (item, key) => {
         let {title, dotIcon, description, imgUrl, buttonLabel} = item
         <div key>
@@ -95,11 +116,18 @@ let make = () => {
         </div>
       })}
     </div>
-    <div className=actionsLeft id="actionsButtons">
-      <ArrowButton dir=#left />
-    </div>
-    <div className=actionsRight id="actionsButtons">
-      <ArrowButton dir=#right />
-    </div>
+    {currentIndex > startItem
+      ? <div className=actionsLeft id="actionsButtons" onClick=handleLeftClick>
+         <ArrowButton dir=#left />
+       </div>
+     : <div />
+    }
+    {currentIndex < lastItem
+      ? <div className=actionsRight id="actionsButtons" onClick=handleRightClick>
+         <ArrowButton dir=#right />
+        </div>
+      : <div />
+    }
   </div>
 }
+

@@ -1,41 +1,19 @@
 open Emotion
 
 let container = css({
-  // "border": "2px solid orange",
   "position": "relative",
-  "width": "90dvw",
   "maxWidth": "100dvw",
   "cursor": "pointer",
   "display": "flex",
   "gap": "16px",
   "flexDirection": "column",
- "@media (min-width: 1200px)": {
-  "gap": 0,
+  "@media (min-width: 1200px)": {
+    "gap": 0,
   },
   "@media (min-width: 768px)": {
     "&:hover #actionsButtons": {
       "opacity": 1,
     },
-  },
-})
-
-let list = css({
-  "display": "flex",
-  "overflowY": "hidden",
-  "overflowX": "auto",
-  "scrollBehavior": "smooth",
-  "scrollSnapType": "x mandatory",
-  "scrollBarWidth": "none",
-  "flexDirection": "row",
-  "listStyle": "none",
-  "padding": 0,
-  "paddingLeft": "16px",
-  "gap": "24px",
-  "@media (min-width: 768px)": {
-    "padding": "16px 32px",
-  },
-  "@media (min-width: 1200px)": {
-    "padding": "32px",
   },
 })
 
@@ -46,9 +24,10 @@ let title = css({
   "margin": 0,
   "lineHeight": "120%",
   "paddingLeft": "16px",
-   "@media (min-width: 768px)": {
+  "transition": Theme.Constants.transition,
+  "@media (min-width: 768px)": {
     "paddingLeft": "32px",
-    },
+  },
   "@media (min-width: 1200px)": {
     "fontSize": "28px",
   },
@@ -77,3 +56,26 @@ let actionsLeft = css({
   "height": "100%",
   "paddingLeft": "16px",
 })
+
+let list = (~p: int) => {
+  let position = switch p {
+     | 1 => "start"
+     | 2 => "center"
+     | 3 => "end"
+     | _ => "start"
+   }
+  css({
+    "display": "flex",
+    "padding": 0,
+    "justifyContent": position,
+    "width": "100dvw",
+    "transition": "justify-content 2000ms ease-in-out",
+    "gap": "24px",
+    "@media (min-width: 768px)": {
+      "padding": "16px 32px",
+    },
+    "@media (min-width: 1200px)": {
+      "padding": "32px",
+    },
+  })
+}
