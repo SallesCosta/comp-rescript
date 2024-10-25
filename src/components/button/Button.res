@@ -70,6 +70,7 @@ module Styles = {
       "userSelect": "none",
       "whitSpace": "nowrap",
       "willChange": "background-color",
+      "width": "auto",
       "&:hover": {
         "transition": transition,
         "backgroundColor": backgroundColorHover,
@@ -95,11 +96,13 @@ let make = (
   ~size: size=#lg,
   ~variant: variant=#primary,
 ) => {
-  <button className={Styles.button(~size, ~variant)} ?onClick disabled>
-    {if loading {
-      <div> {"loading..."->React.string} </div>
-    } else {
-      label->React.string
-    }}
-  </button>
+  <div>
+    <button className={Styles.button(~size, ~variant)} ?onClick disabled>
+      {if loading {
+        <div> {"loading..."->React.string} </div>
+      } else {
+        label->React.string
+      }}
+    </button>
+</div>
 }
