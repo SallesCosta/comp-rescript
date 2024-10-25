@@ -10,7 +10,6 @@ let iconPath = (dotIcon: string) => switch dotIcon {
   | _ => "/images/point-3.svg"
 }
 
-module Card = {
   @react.component
   let make = (~title, ~description, ~imgUrl, ~dotIcon: string, ~buttonLabel) => {
 
@@ -31,32 +30,4 @@ module Card = {
       <h2 className=subTitle id="title"> {title->s} </h2>
     </div>
   }
-}
-
-module Styles = {
-  open Emotion
-
-  let cardWrapperStorybookStyle = css({
-    "alignItems": "center",
-    "backgroundColor": "#172128",
-    "display": "flex",
-    "gap": "15px",
-    "height": "100dvh",
-    "justifyContent": "center",
-    "width": "100%",
-  })
-}
-
-module CardWrapperStorybook = {
-  let mockDescription = "Un talk-show spectaculaire, drôle et festif, une émission de société et de divertissement,... "
-  let mockImgUrl = "https://www.france.tv/image/vignette_3x4/300/400/o/o/m/b4a6035e-phpcoemoo.jpg"
-
-
-  @react.component
-  let make = (~title, ~description, ~imgUrl, ~dotIcon, ~buttonLabel) => {
-    <div className={Styles.cardWrapperStorybookStyle}>
-      <Card imgUrl description dotIcon title buttonLabel />
-    </div>
-  }
-}
 

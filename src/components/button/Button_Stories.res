@@ -8,7 +8,8 @@ type props = {
 
 let default = Storybook.make(
   ~title="Components/Button",
-  ~component=Button.make,
+  ~component=WrapperStorybook.ButtonWrapperStorybook.make,
+
   ~argTypes={
     label: Storybook.argType(~defaultValue="découvrir", ~control=Text, ()),
     size: Storybook.argType(~defaultValue=#md, ~options=[#md, #lg], ~control=Radio, ()),

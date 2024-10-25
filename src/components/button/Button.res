@@ -96,13 +96,13 @@ let make = (
   ~size: size=#lg,
   ~variant: variant=#primary,
 ) => {
-  <div>
-    <button className={Styles.button(~size, ~variant)} ?onClick disabled>
-      {if loading {
-        <div> {"loading..."->React.string} </div>
-      } else {
-        label->React.string
-      }}
-    </button>
-</div>
+      <div>
+        <button className={Styles.button(~size, ~variant)} ?onClick disabled>
+          {if loading {
+            <div> {"loading..."->React.string} </div>
+          } else {
+            label->React.string
+          }}
+        </button>
+    </div>
 }

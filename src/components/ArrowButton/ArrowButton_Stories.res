@@ -4,7 +4,7 @@ type props = {
 
 let default = Storybook.make(
   ~title="Components/ArrowButton",
-  ~component=ArrowButton.make,
+  ~component=WrapperStorybook.ArrowButtonWrapperStorybook.make,
   ~argTypes={
     dir: Storybook.argType(~defaultValue=#right, ~options=[#right, #left], ~control=Radio, ()),
   },

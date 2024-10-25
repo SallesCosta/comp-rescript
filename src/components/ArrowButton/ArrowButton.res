@@ -9,9 +9,9 @@ module Style = {
       "display": "flex",
       "justifyContent": "center",
       "alignItems": "center",
-      "minWidth": "48px",
-      "minHeight": "48px",
       "zIndex": "3",
+      "width": "48px",
+      "height": "48px",
       "cursor ": "pointer",
   })
 }

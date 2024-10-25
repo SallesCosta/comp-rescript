@@ -1,7 +1,6 @@
 open Render
 open React
 open CarouselStyle
-open Card
 
 type mockedDataProps = {
   title: string,

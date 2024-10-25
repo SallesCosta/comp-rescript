@@ -1,17 +1,4 @@
-module Styles = {
-  open Emotion
-
-  let wrapper = css({
-    "alignItems": "center",
-    "backgroundColor": "#172128",
-    "display": "flex",
-    "flexDirection": "column",
-    "gap": "30px",
-    "height": "100dvh",
-    "justifyContent": "center",
-    "width": "100%",
-  })
-}
+open Render
 
 module Wrapper = {
   @react.component
@@ -22,10 +9,8 @@ module Wrapper = {
 
 let default = () => {
   <Wrapper>
-    <div>
-      <Button label="découvrir" variant=#primary />
-      <Button label="SECONDARY" variant=#secondary size=#md />
-    </div>
+    <Button label="découvrir" variant=#primary />
+    <Button label="SECONDARY" variant=#secondary size=#md />
     <Carousel />
   </Wrapper>
 }
